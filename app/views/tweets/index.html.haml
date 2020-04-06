@@ -2,7 +2,7 @@
   myWorld Grosser Preis von Osterreich 2019
 .contents
   - @tweets.each do |tweet|
-    = tweet.image
+    = image_tag tweet.image.to_s, class: "contents__tweets"
     = tweet.carname
     = tweet.year
     = tweet.description
