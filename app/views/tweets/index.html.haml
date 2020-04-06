@@ -1,8 +1,20 @@
 .header
-  myWorld Grosser Preis von Osterreich 2019
+  motaspod
+  .header__menu
+    = link_to new_tweet_path, method: :get, class: "header__menu.button" do
+      投稿する
 .contents
   - @tweets.each do |tweet|
     = image_tag tweet.image.to_s, class: "contents__tweets"
-    = tweet.carname
-    = tweet.year
-    = tweet.description
+    .contents__tweets--details
+      name
+      = tweet.carname
+    .contents__tweets--details
+      production year
+      = tweet.year
+    .contents__tweets--details
+      description
+      = tweet.description
+    .contents__tweets--details
+      user name
+      = tweet.user.name
