@@ -1,2 +1,8 @@
 .header
   myWorld Grosser Preis von Osterreich 2019
+.contents
+  - @tweets.each do |tweet|
+    = tweet.image
+    = tweet.carname
+    = tweet.year
+    = tweet.description
