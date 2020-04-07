@@ -1,8 +1,17 @@
 .header
   motaspod
   .header__menu
-    = link_to new_tweet_path, method: :get, class: "header__menu.button" do
-      投稿する
+    - if user_signed_in?
+      = link_to new_tweet_path, method: :get, class: "header__menu.button" do
+        投稿する
+      = link_to destroy_user_session_path, method: :delete, class: "header__menu.button" do
+        ログアウト
+    - else
+      = link_to new_user_registration_path, method: :get, class: "header__menu.button" do
+        新規登録
+      = link_to user_session_path, method: :get, class: "header__menu.button" do
+        ログイン
+
 .contents
   - @tweets.each do |tweet|
     = image_tag tweet.image.to_s, class: "contents__tweets"
