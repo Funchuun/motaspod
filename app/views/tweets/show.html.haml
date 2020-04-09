@@ -1,0 +1,33 @@
+.contents
+  = image_tag @tweet.image.to_s, class: "contents__tweets"
+  .contents__tweets--details
+    name
+    = @tweet.carname
+  .contents__tweets--details
+    production year
+    = @tweet.year
+  .contents__tweets--details
+    description
+    = @tweet.description
+  .contents__tweets--details
+    user name
+    = @tweet.user.name
+  .contents__tweets--menulist
+    - if current_user.id == @tweet.user_id
+      .content__tweets--menulist__menu
+        edit
+      .content__tweets--menulist__menu
+        delete
+      .content__tweets--menulist__menu
+        = link_to root_path, method: :get, class: "header.logo" do
+          トップへ戻る
+    - elsif user_signed_in?
+      .content__tweets--menulist__menu
+        supercool
+      .content__tweets--menulist__menu
+        cool      
+      .content__tweets--menulist__menu
+        uncool
+      .content__tweets--menulist__menu
+        = link_to root_path, method: :get, class: "header.logo" do
+          トップへ戻る

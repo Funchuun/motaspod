@@ -1,15 +1,16 @@
 .header
   = render partial: "render/header"
 
-.contents
+.content
   = current_user.name
   さんの投稿一覧
   .contents
     - current_user.tweets.each do |tweet|
-      = image_tag tweet.image.to_s, class: "contents__tweets"
-      .contents__tweets--details
-        name
-        = tweet.carname
-      .contents__tweets--details
-        production year
-        = tweet.year
+      = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
+        = image_tag tweet.image.to_s, class: "contents__tweets"
+        .contents__tweets--details
+          name
+          = tweet.carname
+        .contents__tweets--details
+          production year
+          = tweet.year

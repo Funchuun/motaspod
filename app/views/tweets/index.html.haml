@@ -3,16 +3,17 @@
 
 .contents
   - @tweets.each do |tweet|
-    = image_tag tweet.image.to_s, class: "contents__tweets"
-    .contents__tweets--details
-      name
-      = tweet.carname
-    .contents__tweets--details
-      production year
-      = tweet.year
-    .contents__tweets--details
-      description
-      = tweet.description
-    .contents__tweets--details
-      user name
-      = tweet.user.name
+    = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
+      = image_tag tweet.image.to_s, class: "contents__tweets"
+      .contents__tweets--details
+        name
+        = tweet.carname
+      .contents__tweets--details
+        production year
+        = tweet.year
+      .contents__tweets--details
+        description
+        = tweet.description
+      .contents__tweets--details
+        user name
+        = tweet.user.name
