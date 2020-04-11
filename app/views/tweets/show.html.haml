@@ -12,24 +12,26 @@
   .contents__tweets--details
     user name
     = @tweet.user.name
-  .contents__tweets--menulist
+  .contents__tweets--details
+    超カッコいい
+    = @tweet.supercools.count
+  .contents__tweets--owner
     - if current_user.id == @tweet.user_id
-      .content__tweets--menulist__menu
-        = link_to edit_tweet_path, method: :get, class: "content__tweets--menulist__menu" do
+      .content__tweets--owner__menu
+        = link_to edit_tweet_path, method: :get, class: "content__tweets--owner__menu" do
           編集
-      .content__tweets--menulist__menu
-        = link_to tweet_path, method: :delete, class: "content__tweets--menulist__menu" do
+      .content__tweets--owner__menu
+        = link_to tweet_path, method: :delete, class: "content__tweets--owner__menu" do
           削除
-      .content__tweets--menulist__menu
-        = link_to root_path, method: :get, class: "header.logo" do
-          トップへ戻る
-    - elsif user_signed_in?
-      .content__tweets--menulist__menu
-        supercool
+  .contents__tweets--other
+    - if current_user.already_supercools?(@tweet)
+      = button_to "取り消す", tweet_supercool_path(@tweet), method: :delete
+    - else
+      = button_to '超カッコいい', tweet_supercools_path(@tweet)
       .content__tweets--menulist__menu
         cool      
       .content__tweets--menulist__menu
         uncool
-      .content__tweets--menulist__menu
-        = link_to root_path, method: :get, class: "header.logo" do
-          トップへ戻る
+  .content__tweets--menu
+    = link_to root_path, method: :get, class: "header.logo" do
+      トップへ戻る
