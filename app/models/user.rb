@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :tweets
+  has_many :supercools
+  def already_supercools?(tweet)
+    self.supercools.exists?(tweet_id: tweet.id)
+  end
 end
