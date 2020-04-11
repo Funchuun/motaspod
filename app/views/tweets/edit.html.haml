@@ -1,0 +1,11 @@
+.contents.row
+  .contents__form
+    = form_with(model: @tweet, url: "/tweets/#{@tweet.id}", method: :put) do |f|
+      .contents__form--tweet
+        再投稿する
+        .contents__form--tweet.form
+          = f.file_field :image, class: "contents__form--tweet.form", placeholder: "car/bike image"
+          = f.text_field :carname, class: "contents__form--tweet.form", placeholder: "car/bike name"
+          = f.text_field :year, class: "contents__form--tweet.form", placeholder: "production year"
+          = f.text_field :description, class: "contents__form--tweet.form", placeholder: "ex) It's cool color!"
+          = f.submit class: "contents__form--tweet.form", value: "Tweet"

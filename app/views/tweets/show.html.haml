@@ -15,9 +15,11 @@
   .contents__tweets--menulist
     - if current_user.id == @tweet.user_id
       .content__tweets--menulist__menu
-        edit
+        = link_to edit_tweet_path, method: :get, class: "content__tweets--menulist__menu" do
+          編集
       .content__tweets--menulist__menu
-        delete
+        = link_to tweet_path, method: :delete, class: "content__tweets--menulist__menu" do
+          削除
       .content__tweets--menulist__menu
         = link_to root_path, method: :get, class: "header.logo" do
           トップへ戻る
