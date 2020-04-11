@@ -1,29 +1,19 @@
 .header
-  motaspod
-  .header__menu
-    - if user_signed_in?
-      = link_to new_tweet_path, method: :get, class: "header__menu.button" do
-        投稿する
-      = link_to destroy_user_session_path, method: :delete, class: "header__menu.button" do
-        ログアウト
-    - else
-      = link_to new_user_registration_path, method: :get, class: "header__menu.button" do
-        新規登録
-      = link_to user_session_path, method: :get, class: "header__menu.button" do
-        ログイン
+  = render partial: "render/header"
 
 .contents
   - @tweets.each do |tweet|
-    = image_tag tweet.image.to_s, class: "contents__tweets"
-    .contents__tweets--details
-      name
-      = tweet.carname
-    .contents__tweets--details
-      production year
-      = tweet.year
-    .contents__tweets--details
-      description
-      = tweet.description
-    .contents__tweets--details
-      user name
-      = tweet.user.name
+    = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
+      = image_tag tweet.image.to_s, class: "contents__tweets"
+      .contents__tweets--details
+        name
+        = tweet.carname
+      .contents__tweets--details
+        production year
+        = tweet.year
+      .contents__tweets--details
+        description
+        = tweet.description
+      .contents__tweets--details
+        user name
+        = tweet.user.name
