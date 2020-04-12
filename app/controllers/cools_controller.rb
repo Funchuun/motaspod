@@ -1,0 +1,2 @@
+class CoolsController < ApplicationController
+end
