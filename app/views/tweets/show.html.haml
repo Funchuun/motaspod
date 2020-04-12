@@ -12,12 +12,6 @@
   .contents__tweets--details
     user name
     = @tweet.user.name
-  .contents__tweets--details
-    超カッコいい
-    = @tweet.supercools.count
-  .contents__tweets--details
-    カッコいい
-    = @tweet.cools.count
   .contents__tweets--owner
     - if current_user.id == @tweet.user_id
       .content__tweets--owner__menu
@@ -27,12 +21,11 @@
         = link_to tweet_path, method: :delete, class: "content__tweets--owner__menu" do
           削除
   .contents__tweets--other
-    - if current_user.already_supercools?(@tweet)
-      = button_to "取り消す", tweet_supercool_path(@tweet), method: :delete
+    - if current_user.already_liked?(@tweet)
+      = button_to "取り消す", tweet_like_path(@tweet), method: :delete
     - else
-      = button_to "超カッコいい", tweet_supercools_path(@tweet)
-      .content__tweets--menulist__menu
-        uncool
-  .content__tweets--menu
+      = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}}
+      = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}}
+      = button_to "ブサイク", tweet_likes_path(@tweet), {methog: :post, params: {rate: 'Uncool'}}
     = link_to root_path, method: :get, class: "header.logo" do
       トップへ戻る
