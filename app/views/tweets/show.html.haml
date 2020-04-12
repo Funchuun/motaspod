@@ -15,6 +15,9 @@
   .contents__tweets--details
     超カッコいい
     = @tweet.supercools.count
+  .contents__tweets--details
+    カッコいい
+    = @tweet.cools.count
   .contents__tweets--owner
     - if current_user.id == @tweet.user_id
       .content__tweets--owner__menu
@@ -27,9 +30,7 @@
     - if current_user.already_supercools?(@tweet)
       = button_to "取り消す", tweet_supercool_path(@tweet), method: :delete
     - else
-      = button_to '超カッコいい', tweet_supercools_path(@tweet)
-      .content__tweets--menulist__menu
-        cool      
+      = button_to "超カッコいい", tweet_supercools_path(@tweet)
       .content__tweets--menulist__menu
         uncool
   .content__tweets--menu
