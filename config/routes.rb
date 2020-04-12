@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'tweets#index'
   resources :tweets do
     resources :supercools
+    resources :cools
   end
   resources :users
 end
