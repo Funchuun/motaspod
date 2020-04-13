@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  before_action :move_to_sign_in?, except: :index
+
   def index
     @tweets = Tweet.all
   end
@@ -45,5 +47,9 @@ class TweetsController < ApplicationController
   private
   def tweet_params
     params.require(:tweet).permit(:image, :carname, :year, :description).merge(user_id: current_user.id)
+  end
+
+  def move_to_sign_in?
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
