@@ -1,35 +1,40 @@
 .contents
   = image_tag @tweet.image.to_s, class: "contents__tweets"
   .contents__tweets--details
-    name
+    車名
     = @tweet.carname
   .contents__tweets--details
-    production year
+    年
     = @tweet.year
   .contents__tweets--details
-    description
+    説明
     = @tweet.description
   .contents__tweets--details
-    user name
+    投稿者
     = @tweet.user.name
-  .contents__tweets--menulist
+  .contents__tweets--details
+    超カッコいい
+    = @tweet.likes.where(rate: "Supercool").count
+  .contents__tweets--details
+    カッコいい
+    = @tweet.likes.where(rate: "Cool").count
+  .contents__tweets--details
+    ブサイク
+    = @tweet.likes.where(rate: "Uncool").count
+  .contents__tweets--owner
     - if current_user.id == @tweet.user_id
-      .content__tweets--menulist__menu
-        = link_to edit_tweet_path, method: :get, class: "content__tweets--menulist__menu" do
+      .content__tweets--owner__menu
+        = link_to edit_tweet_path, method: :get, class: "content__tweets--owner__menu" do
           編集
-      .content__tweets--menulist__menu
-        = link_to tweet_path, method: :delete, class: "content__tweets--menulist__menu" do
+      .content__tweets--owner__menu
+        = link_to tweet_path, method: :delete, class: "content__tweets--owner__menu" do
           削除
-      .content__tweets--menulist__menu
-        = link_to root_path, method: :get, class: "header.logo" do
-          トップへ戻る
-    - elsif user_signed_in?
-      .content__tweets--menulist__menu
-        supercool
-      .content__tweets--menulist__menu
-        cool      
-      .content__tweets--menulist__menu
-        uncool
-      .content__tweets--menulist__menu
-        = link_to root_path, method: :get, class: "header.logo" do
-          トップへ戻る
+  .contents__tweets--other
+    - if current_user.already_liked?(@tweet)
+      = button_to "取り消す", tweet_like_path(@tweet), method: :delete
+    - else
+      = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}}
+      = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}}
+      = button_to "ブサイク", tweet_likes_path(@tweet), {methog: :post, params: {rate: 'Uncool'}}
+    = link_to root_path, method: :get, class: "header.logo" do
+      トップへ戻る
