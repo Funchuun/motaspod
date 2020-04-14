@@ -10,8 +10,8 @@
     説明
     = @tweet.description
   .contents__tweets--details
-    投稿者
     = @tweet.user.name
+    さんの投稿
   .contents__tweets--details
     超カッコいい
     = @tweet.likes.where(rate: "Supercool").count

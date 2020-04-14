@@ -3,14 +3,15 @@
 
 .content
   = current_user.name
-  さんの投稿一覧
+  のマイページ
   .contents
+    あなたの投稿一覧
     - current_user.tweets.each do |tweet|
       = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
         = image_tag tweet.image.to_s, class: "contents__tweets"
         .contents__tweets--details
-          name
+          車名
           = tweet.carname
         .contents__tweets--details
-          production year
+          年
           = tweet.year
