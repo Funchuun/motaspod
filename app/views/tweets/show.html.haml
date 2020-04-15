@@ -1,3 +1,6 @@
+.header
+  = render partial: "render/header"
+
 .contents
   = image_tag @tweet.image.to_s, class: "contents__tweets"
   .contents__tweets--details
