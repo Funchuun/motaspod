@@ -38,6 +38,6 @@
     - else
       = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}}
       = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}}
-      = button_to "ブサイク", tweet_likes_path(@tweet), {methog: :post, params: {rate: 'Uncool'}}
+      = button_to "ブサイク", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Uncool'}}
     = link_to root_path, method: :get, class: "header.logo" do
       トップへ戻る
