@@ -3,14 +3,32 @@
 
 .content
   = current_user.name
-  さんの投稿一覧
-  .contents
-    - current_user.tweets.each do |tweet|
-      = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
-        = image_tag tweet.image.to_s, class: "contents__tweets"
-        .contents__tweets--details
-          name
-          = tweet.carname
-        .contents__tweets--details
-          production year
-          = tweet.year
+  のマイページ
+  .user_menus
+    マイメニュー
+    .user_menus.menu
+      あなたが評価した投稿一覧
+      - if current_user.likes.present?
+        - current_user.like_tweets.each do |tweet|
+          = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
+            = image_tag tweet.image.to_s, class: "contents__tweets"
+            .contents__tweets--details
+              車名
+              = tweet.carname
+            .contents__tweets--details
+              年
+              = tweet.year
+            .contents__tweets--details
+              = tweet.user.name
+              さんの投稿
+    .contents
+      あなたの投稿一覧
+      - current_user.tweets.each do |tweet|
+        = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
+          = image_tag tweet.image.to_s, class: "contents__tweets"
+          .contents__tweets--details
+            車名
+            = tweet.carname
+          .contents__tweets--details
+            年
+            = tweet.year

@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :likes
   end
-  resources :users
+  resources :users do
+    collection do
+      get :likes
+    end
+  end
 end

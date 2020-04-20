@@ -4,8 +4,8 @@
       .contents__form--tweet
         投稿する
         .contents__form--tweet.form
-          = f.file_field :image, class: "contents__form--tweet.form", placeholder: "car/bike image"
-          = f.text_field :carname, class: "contents__form--tweet.form", placeholder: "car/bike name"
-          = f.text_field :year, class: "contents__form--tweet.form", placeholder: "production year"
-          = f.text_field :description, class: "contents__form--tweet.form", placeholder: "ex) It's cool color!"
+          = f.file_field :image, class: "contents__form--tweet.form", placeholder: "オススメの一台の写真 ※必須"
+          = f.text_field :carname, class: "contents__form--tweet.form", placeholder: "名前 ※必須"
+          = f.text_field :year, class: "contents__form--tweet.form", placeholder: "年 ※必須"
+          = f.text_field :description, class: "contents__form--tweet.form", placeholder: "あなたがオススメだと思う理由 ※必須 180文字以内"
           = f.submit class: "contents__form--tweet.form", value: "Tweet"

@@ -21,9 +21,6 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @like = Like.new
-    # if @tweet.user_id == current_user.id
-    #   @tweet.show(tweet_params)
-    # end
   end
 
   def edit

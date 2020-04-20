@@ -1,3 +1,6 @@
+.header
+  = render partial: "render/header"
+
 .contents
   = image_tag @tweet.image.to_s, class: "contents__tweets"
   .contents__tweets--details
@@ -10,8 +13,8 @@
     説明
     = @tweet.description
   .contents__tweets--details
-    投稿者
     = @tweet.user.name
+    さんの投稿
   .contents__tweets--details
     超カッコいい
     = @tweet.likes.where(rate: "Supercool").count
@@ -35,6 +38,6 @@
     - else
       = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}}
       = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}}
-      = button_to "ブサイク", tweet_likes_path(@tweet), {methog: :post, params: {rate: 'Uncool'}}
+      = button_to "ブサイク", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Uncool'}}
     = link_to root_path, method: :get, class: "header.logo" do
       トップへ戻る
