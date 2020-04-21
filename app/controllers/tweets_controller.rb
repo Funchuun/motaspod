@@ -41,6 +41,26 @@ class TweetsController < ApplicationController
     @tweet.destroy if @tweet.user_id == current_user.id
   end
 
+  def search
+    if params[:carname].present?
+      @carnames = Tweet.where('carname LIKE ?', "%#{params[:carname]}%")
+    else
+      @carnames = Tweet.none
+    end
+
+    if params[:year].present?
+      @years = Tweet.where('year LIKE ?', "%#{params[:year]}%")
+    else
+      @years = Tweet.none
+    end
+    
+    if params[:description].present?
+      @descriptions = Tweet.where('description LIKE ?', "%#{params[:description]}%")
+    else
+      @descriptions = Tweet.none
+    end
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:image, :carname, :year, :description).merge(user_id: current_user.id)

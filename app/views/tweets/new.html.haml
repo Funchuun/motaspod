@@ -6,6 +6,6 @@
         .contents__form--tweet.form
           = f.file_field :image, class: "contents__form--tweet.form", placeholder: "オススメの一台の写真 ※必須"
           = f.text_field :carname, class: "contents__form--tweet.form", placeholder: "名前 ※必須"
-          = f.text_field :year, class: "contents__form--tweet.form", placeholder: "年 ※必須"
+          = f.text_field :year, class: "contents__form--tweet.form", placeholder: "年 ※必須 半角数字"
           = f.text_field :description, class: "contents__form--tweet.form", placeholder: "あなたがオススメだと思う理由 ※必須 180文字以内"
           = f.submit class: "contents__form--tweet.form", value: "Tweet"
