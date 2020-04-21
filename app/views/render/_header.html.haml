@@ -9,6 +9,8 @@
         マイページ
       = link_to destroy_user_session_path, method: :delete, class: "header__menu.button" do
         ログアウト
+      = link_to search_tweets_path, method: :get, class: "header__menu.button" do
+        検索
     - else
       = link_to new_user_registration_path, method: :get, class: "header__menu.button" do
         新規登録
