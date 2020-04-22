@@ -1,11 +1,10 @@
-.contents.row
-  .contents__form
-    = form_with(model: @tweet, url: '/tweets', method: :post) do |f|
-      .contents__form--tweet
-        投稿する
-        .contents__form--tweet.form
-          = f.file_field :image, class: "contents__form--tweet.form", placeholder: "オススメの一台の写真 ※必須"
-          = f.text_field :carname, class: "contents__form--tweet.form", placeholder: "名前 ※必須"
-          = f.text_field :year, class: "contents__form--tweet.form", placeholder: "製造年 ※必須 半角数字"
-          = f.text_field :description, class: "contents__form--tweet.form", placeholder: "あなたがオススメだと思う理由 ※必須 180文字以内"
-          = f.submit class: "contents__form--tweet.form", value: "Tweet"
+.title
+  ツイートを投稿する
+.form
+  = form_with(model: @tweet, url: '/tweets', method: :post) do |f|
+    .form__tweet
+      = f.file_field :image, class: "form__tweet--input", placeholder: "オススメの一台の写真 ※必須"
+      = f.text_field :carname, class: "form__tweet--input", placeholder: "名前 ※必須"
+      = f.text_field :year, class: "form__tweet--input", placeholder: "製造年 ※必須 半角数字"
+      = f.text_field :description, class: "form__tweet--input", placeholder: "あなたがオススメだと思う理由 ※必須 180文字以内"
+      = f.submit class: "form__tweet--input", value: "Tweet"

@@ -3,23 +3,23 @@
 
 .contents
   - @tweets.each do |tweet|
-    = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
-      = image_tag tweet.image.to_s, class: "contents__tweets"
-      .contents__tweets--details
+    = link_to tweet_path(tweet), method: :get, class: "tweet" do
+      = image_tag tweet.image.to_s, class: "tweet__details"
+      .tweet__details
         車名
         = tweet.carname
-      .contents__tweets--details
+      .tweet__details
         製造年
         = tweet.year
-      .contents__tweets--details
+      .tweet__details
         = tweet.user.name
         さんの投稿
-      .contents__tweets--details
+      .tweet__details
         超カッコいい
         = tweet.likes.where(rate: "Supercool").count
-      .contents__tweets--details
+      .tweet__details
         カッコいい
         = tweet.likes.where(rate: "Cool").count
-      .contents__tweets--details
+      .tweet__details
         ブサイク
         = tweet.likes.where(rate: "Uncool").count
