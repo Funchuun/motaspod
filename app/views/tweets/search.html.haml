@@ -1,3 +1,6 @@
+.header
+  = render partial: "render/header"
+
 .search
   ツイート検索
 = form_with url: search_tweets_path, method: :get, local: true do |f|
