@@ -9,18 +9,19 @@
     height: 40px;
     text-align: center;
     background-color: #0a0a0a;
-    color: #b6f800;
+    color: rgb(217, 255, 0);
     display: block;
     font-size: 30px;
     border-width: 1px;
     border-style: solid;
-    border-color: #b6f800;
+    border-color: rgb(217, 255, 0);
     border-image: initial;
     border-radius: 4px;
     padding: 8px 10px;
     transition: all 0.3s ease-out 0s;
     text-decoration: none;
-    font-family: cursive;
+    // font-family: cursive;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     line-height: 40px;
   }
   &__menu {
@@ -32,7 +33,7 @@
       font-size: 14px;
       border-width: 1px;
       border-style: solid;
-      border-color: rgb(173, 15, 15);
+      border-color: rgba(216, 8, 8, 0.863);
       border-image: initial;
       border-radius: 4px;
       padding: 8px 10px;

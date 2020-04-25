@@ -6,29 +6,31 @@
   のマイページ
   .user_menus
     マイメニュー
-    .user_menus.menu
+    .tweet
       あなたが評価した投稿一覧
       - if current_user.likes.present?
         - current_user.like_tweets.each do |tweet|
-          = link_to tweet_path(tweet), method: :get, class: "tweet" do
-            = image_tag tweet.image.to_s, class: "tweet__details"
-            .tweet__details
-              車名
-              = tweet.carname
-            .tweet__details
-              製造年
-              = tweet.year
-            .tweet__details
-              = tweet.user.name
-              さんの投稿
-    .contents
+          .tweet__box
+            = link_to tweet_path(tweet), method: :get, class: "" do
+              .tweet__box--details
+                = tweet.user.name
+                さんの投稿
+              = image_tag tweet.image.to_s, class: "tweet__box--details"
+              .tweet__box--details
+                車名
+                = tweet.carname
+              .tweet__box--details
+                = tweet.year
+                年
+    .tweet
       あなたの投稿一覧
       - current_user.tweets.each do |tweet|
-        = link_to tweet_path(tweet), method: :get, class: "tweet" do
-          = image_tag tweet.image.to_s, class: "tweet__details"
-          .tweet__details
-            車名
-            = tweet.carname
-          .tweet__details
-            年
-            = tweet.year
+        .tweet__box
+          = link_to tweet_path(tweet), method: :get, class: "" do
+            = image_tag tweet.image.to_s, class: "tweet__box--details"
+            .tweet__box--details
+              車名
+              = tweet.carname
+            .tweet__box--details
+              = tweet.year
+              年

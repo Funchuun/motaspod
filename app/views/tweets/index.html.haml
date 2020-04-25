@@ -1,25 +1,27 @@
 .header
   = render partial: "render/header"
 
-.contents
-  - @tweets.each do |tweet|
-    = link_to tweet_path(tweet), method: :get, class: "tweet" do
-      = image_tag tweet.image.to_s, class: "tweet__details"
-      .tweet__details
-        車名
-        = tweet.carname
-      .tweet__details
-        製造年
-        = tweet.year
-      .tweet__details
-        = tweet.user.name
-        さんの投稿
-      .tweet__details
-        超カッコいい
-        = tweet.likes.where(rate: "Supercool").count
-      .tweet__details
-        カッコいい
-        = tweet.likes.where(rate: "Cool").count
-      .tweet__details
-        ブサイク
-        = tweet.likes.where(rate: "Uncool").count
+.content
+  .tweet
+    - @tweets.each do |tweet|
+      .tweet__box
+        = link_to tweet_path(tweet), method: :get, class: "" do
+          .tweet__box--details
+            = tweet.user.name
+            さんの投稿
+          = image_tag tweet.image.to_s, class: "tweet__box--details"
+          .tweet__box--details
+            車名
+            = tweet.carname
+          .tweet__box--details
+            = tweet.year
+            年
+          .tweet__box--details.supercool
+            超カッコいい
+            = tweet.likes.where(rate: "Supercool").count
+          .tweet__box--details.cool
+            カッコいい
+            = tweet.likes.where(rate: "Cool").count
+          .tweet__box--details.uncool
+            ブサイク
+            = tweet.likes.where(rate: "Uncool").count
