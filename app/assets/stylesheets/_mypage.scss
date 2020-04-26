@@ -1,0 +1,52 @@
+.content {
+  background-color: rgb(69, 72, 73);
+  border-style: groove;
+  border-width: thick;
+  border-color: rgba(255, 255, 255, 0.87);
+}
+
+.mypage {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.mypage__menu {
+  margin: 2em 0;
+  padding: 0;
+}
+
+.mypage__menu label {
+  padding: 10px;
+  margin-left: 5px;
+  background-color: rgba(255, 254, 254, 0.897);
+  color: rgb(69, 72, 73);
+  font-weight: bold;
+  border-style: outset;
+  border-width: medium;
+  border-radius: 30px;
+  border-color: rgba(216, 8, 8, 0.863);
+  cursor :pointer;
+}
+
+.mypage__menu label:hover {
+  background: rgba(224, 0, 231, 0.671);
+}
+
+.mypage__menu input {
+  display: none;
+}
+
+.mypage__menu .tweet {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.8s;
+}
+
+.mypage__menu input:checked ~ .tweet {
+  padding: 10px 0;
+  height: auto;
+  opacity: 1;
+  margin-top: 15px;
+}
