@@ -1,39 +1,40 @@
 .header
   = render partial: "render/header"
 
-.search
-  ツイート検索
-= form_with url: search_tweets_path, method: :get, local: true do |f|
-  = f.text_field :carname, placeholder: "車名で検索"
-  = f.text_field :year, placeholder: "製造年で検索 ※半角数字"
-  = f.text_field :description, placeholder: "説明文で検索"
-  = f.submit :search
+.content
+  .search
+    ツイート検索
+  = form_with url: search_tweets_path, method: :get, local: true do |f|
+    = f.text_field :carname, class: "search__box", placeholder: "車名から検索"
+    = f.text_field :year, class: "search__box", placeholder: "年から検索 ※半角数字"
+    = f.text_field :description, class: "search__box", placeholder: "ひとことから検索"
+    = f.submit '検索', class: "search__btn"
 
-%table
-  %thead
-    %tr
-      %th 車名
-  %tbody
-    - @carnames.each do |tweet|
+  %table.search__result
+    %thead.search__result--title
       %tr
-        %td= link_to '詳細ページ', tweet
-        %td= image_tag tweet.image.to_s
-        %td= tweet.carname
-  %thead
-    %tr
-      %th 製造年
-  %tbody
-    - @years.each do |tweet|
+        %th 車名
+    %tbody.search__result--tweet
+      - @carnames.each do |tweet|
+        %tr.search__result--tweet__box
+          %td.search__result--tweet__box--details= link_to '詳細ページ', tweet
+          %td.search__result--tweet__box--details= image_tag tweet.image.to_s
+          %td.search__result--tweet__box--details= tweet.carname
+    %thead.search__result--title
       %tr
-        %td= link_to '詳細ページ', tweet
-        %td= image_tag tweet.image.to_s
-        %td= tweet.year
-  %thead
-    %tr
-      %th 説明文
-  %tbody
-    - @descriptions.each do |tweet|
+        %th 年
+    %tbody.search__result--tweet
+      - @years.each do |tweet|
+        %tr.search__result--tweet__box
+          %td.search__result--tweet__box--details= link_to '詳細ページ', tweet
+          %td.search__result--tweet__box--details= image_tag tweet.image.to_s
+          %td.search__result--tweet__box--details= tweet.year
+    %thead.search__result--title
       %tr
-        %td= link_to '詳細ページ', tweet
-        %td= image_tag tweet.image.to_s
-        %td= tweet.description
+        %th ひとこと
+    %tbody.search__result--tweet
+      - @descriptions.each do |tweet|
+        %tr.search__result--tweet__box
+          %td.search__result--tweet__box--details= link_to '詳細ページ', tweet
+          %td.search__result--tweet__box--details= image_tag tweet.image.to_s
+          %td.search__result--tweet__box--details= tweet.description
