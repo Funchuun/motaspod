@@ -16,12 +16,14 @@
           .tweet__box--details
             = tweet.year
             年
-          .tweet__box--details.supercool
-            超カッコいい
-            = tweet.likes.where(rate: "Supercool").count
-          .tweet__box--details.cool
-            カッコいい
-            = tweet.likes.where(rate: "Cool").count
-          .tweet__box--details.uncool
-            ブサイク
-            = tweet.likes.where(rate: "Uncool").count
+          .tweet__box--details
+            .tweet__box--details__counts
+              .tweet__box--details__counts.supercool
+                超カッコいい
+                = tweet.likes.where(rate: "Supercool").count
+              .tweet__box--details__counts.cool
+                カッコいい
+                = tweet.likes.where(rate: "Cool").count
+              .tweet__box--details__counts.uncool
+                ブサイク
+                = tweet.likes.where(rate: "Uncool").count

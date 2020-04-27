@@ -32,14 +32,18 @@
       &.script {
         padding: 0px 25px;
       }
-      &.supercool {
-        color: rgb(255, 51, 0)
-      }
-      &.cool {
-        color: rgb(0, 204, 61)
-      }
-      &.uncool {
-        color: rgb(25, 0, 255)
+      &__counts {
+        display: flex;
+        margin-right: 5px;
+        &.supercool {
+          color: rgb(255, 51, 0)
+        }
+        &.cool {
+          color: rgb(0, 204, 61)
+        }
+        &.uncool {
+          color: rgb(25, 0, 255)
+        }
       }
     }
     &--owner {
