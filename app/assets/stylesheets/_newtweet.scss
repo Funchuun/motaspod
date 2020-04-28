@@ -1,0 +1,47 @@
+.content {
+  background-color: rgb(69, 72, 73);
+  border-style: groove;
+  border-width: thick;
+  border-color: rgba(255, 255, 255, 0.87);
+  height: 100vh;
+}
+
+.newtweet {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  &__box {
+    width: 700px;
+    margin: 0 auto;
+    background-color: rgba(255, 254, 254, 0.897);
+    border-style: dashed;
+    border-width: initial;
+    border-color: rgba(216, 8, 8, 0.863);
+    border-image: initial;
+    border-radius: 28px;
+    form {
+      margin: 0 auto;
+      padding: 5px 15px;
+      input#tweet_image.newtweet__box--enter {
+        background-color: rgba(255, 254, 254, 0.897);
+        color: rgb(69, 72, 73);
+        border-style: inset;
+      }
+    }
+    &--enter {
+      border-radius: 10px;
+      display: flex;
+      width: 650px;
+      height: 30px;
+      margin-bottom: 5px;
+    }
+    &--btn {
+      width: 100px;
+      height: 30px;
+      border-radius: 30px;
+      background-color: rgba(216, 8, 8, 0.863);
+      color: rgba(255, 255, 255, 0.87);
+      font-weight: bold;
+      margin: 5px auto;
+    }
+  }
+}
