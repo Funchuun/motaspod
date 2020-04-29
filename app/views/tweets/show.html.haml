@@ -37,10 +37,10 @@
           .tweet__box--owner__menu
             = link_to tweet_path, method: :delete, class: "tweet__box--owner__menu--button" do
               削除
-      .tweet__box--evaluation
+      .tweet__box--eval
         - if current_user.already_liked?(@tweet)
           = button_to "取り消す", tweet_like_path(@tweet), method: :delete
         - else
-          = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}}
-          = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}}
-          = button_to "ブサイク", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Uncool'}}
+          = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}, class: "input.tweet__box--eval.supercool"}
+          = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}, class: "input.tweet__box--eval.cool"}
+          = button_to "ブサイク", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Uncool'}, class: "input.tweet__box--eval.uncool"}
