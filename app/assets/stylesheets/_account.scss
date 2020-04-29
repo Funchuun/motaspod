@@ -1,0 +1,50 @@
+.account {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  &__enter {
+    margin-left: 5px;
+    label {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+    }
+    input {
+      border-style: groove;
+      border-radius: 20px;
+      font-size: 15px;
+      padding: 0px 15px;
+      width: 400px;
+    }
+    input#user_remember_me {
+      width: 20px;
+    }
+    em {
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+    }
+  }
+  &__btn {
+    margin-left: 5px;
+    input {
+      border-style: groove;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 0px 15px;
+      width: 150px;
+      color: rgba(216, 8, 8, 0.863);
+    }
+  }
+  &__links {
+    margin-bottom: 5px;
+    a {
+      color: rgb(255, 255, 255);
+      background-color: rgba(216, 8, 8, 0.863);
+      font-size: 13px;
+      text-decoration: none;
+      margin-left: 5px;
+      border-style: groove;
+      border-radius: 20px;
+      padding: 0px 15px;
+    }
+  }
+}

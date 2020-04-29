@@ -1,0 +1,81 @@
+.tweet {
+  width: 100vh;
+  margin: 0 auto;
+  text-decoration: none;
+  &__box {
+    width: 750px;
+    background-color: rgba(255, 254, 254, 0.897);
+    border-style: dashed;
+    border-width: initial;
+    border-color: rgba(216, 8, 8, 0.863);
+    border-image: initial;
+    border-radius: 28px;
+    margin: 0 auto;
+    text-decoration: none;
+    margin-bottom: 5px;
+    a { 
+      text-decoration: none;
+    }
+    &--details {
+      margin: 0 auto;
+      color: rgb(69, 72, 73);
+      font-weight: bold;
+      text-decoration: none;
+      padding: 0px 25px;
+      &.script {
+        padding: 0px 25px;
+      }
+      &__counts {
+        display: flex;
+        margin-right: 5px;
+        &.supercool {
+          color: rgba(255, 51, 0, 0.651)
+        }
+        &.cool {
+          color: rgba(0, 204, 61, 0.651)
+        }
+        &.uncool {
+          color: rgba(25, 0, 255, 0.651)
+        }
+      }
+    }
+    &--owner {
+      padding: 0px 25px;
+      margin: 0 auto;
+      color: rgb(69, 72, 73);
+      font-weight: bold;
+      text-decoration: none;
+      display: flex;
+      &__menu {
+        &--button {
+          background-color: rgb(69, 72, 73);
+          color: rgb(255, 255, 255);
+          display: block;
+          font-size: 14px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgba(216, 8, 8, 0.863);
+          border-image: initial;
+          border-radius: 4px;
+          padding: 5px 10px;
+          transition: all 0.3s ease-out 0s;
+          margin-left: 10px;
+          text-decoration: none;
+        }
+      }
+    }
+    &--eval {
+      padding: 0px 25px;
+      margin-bottom: 5px;
+      display: flex;
+      input {
+        border-style: groove;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 0px 15px;
+        width: 110px;
+      }
+    }
+  }
+}

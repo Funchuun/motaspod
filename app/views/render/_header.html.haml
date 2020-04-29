@@ -1,18 +1,17 @@
-.header
-  = link_to root_path, method: :get, class: "header.logo" do
-    motaspod
-  .header__menu
-    - if user_signed_in?
-      = link_to new_tweet_path, method: :get, class: "header__menu.button" do
-        投稿する
-      = link_to users_path, method: :get, class: "header__menu.button" do
-        マイページ
-      = link_to destroy_user_session_path, method: :delete, class: "header__menu.button" do
-        ログアウト
-      = link_to search_tweets_path, method: :get, class: "header__menu.button" do
-        検索
-    - else
-      = link_to new_user_registration_path, method: :get, class: "header__menu.button" do
-        新規登録
-      = link_to user_session_path, method: :get, class: "header__menu.button" do
-        ログイン
+= link_to root_path, method: :get, class: "header__logo" do
+  motaspod
+.header__menu
+  - if user_signed_in?
+    = link_to new_tweet_path, method: :get, class: "header__menu--button" do
+      投稿する
+    = link_to users_path, method: :get, class: "header__menu--button" do
+      マイページ
+    = link_to destroy_user_session_path, method: :delete, class: "header__menu--button" do
+      ログアウト
+    = link_to search_tweets_path, method: :get, class: "header__menu--button" do
+      検索
+  - else
+    = link_to new_user_registration_path, method: :get, class: "header__menu--button" do
+      新規登録
+    = link_to user_session_path, method: :get, class: "header__menu--button" do
+      ログイン

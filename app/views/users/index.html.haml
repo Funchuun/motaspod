@@ -2,33 +2,38 @@
   = render partial: "render/header"
 
 .content
-  = current_user.name
-  のマイページ
-  .user_menus
-    マイメニュー
-    .user_menus.menu
-      あなたが評価した投稿一覧
-      - if current_user.likes.present?
-        - current_user.like_tweets.each do |tweet|
-          = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
-            = image_tag tweet.image.to_s, class: "contents__tweets"
-            .contents__tweets--details
-              車名
-              = tweet.carname
-            .contents__tweets--details
-              製造年
-              = tweet.year
-            .contents__tweets--details
-              = tweet.user.name
-              さんの投稿
-    .contents
-      あなたの投稿一覧
-      - current_user.tweets.each do |tweet|
-        = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
-          = image_tag tweet.image.to_s, class: "contents__tweets"
-          .contents__tweets--details
-            車名
-            = tweet.carname
-          .contents__tweets--details
-            年
-            = tweet.year
+  .mypage
+    = current_user.name
+    のマイページ
+    .mypage__menu
+      %label{:for =>"label1"} あなたが評価したツイート一覧
+      %input#label1{:type => "checkbox"}/
+      .tweet
+        - if current_user.likes.present?
+          - current_user.like_tweets.each do |tweet|
+            .tweet__box
+              = link_to tweet_path(tweet), method: :get, class: "" do
+                .tweet__box--details
+                  = tweet.user.name
+                  さんの投稿
+                = image_tag tweet.image.to_s, class: "tweet__box--details"
+                .tweet__box--details
+                  車名
+                  = tweet.carname
+                .tweet__box--details
+                  = tweet.year
+                  年
+    .mypage__menu
+      %label{:for =>"label2"} あなたが投稿したツイート一覧
+      %input#label2{:type => "checkbox"}/
+      .tweet
+        - current_user.tweets.each do |tweet|
+          .tweet__box
+            = link_to tweet_path(tweet), method: :get, class: "" do
+              = image_tag tweet.image.to_s, class: "tweet__box--details"
+              .tweet__box--details
+                車名
+                = tweet.carname
+              .tweet__box--details
+                = tweet.year
+                年

@@ -1,25 +1,29 @@
 .header
   = render partial: "render/header"
 
-.contents
-  - @tweets.each do |tweet|
-    = link_to tweet_path(tweet), method: :get, class: "contents__tweets" do
-      = image_tag tweet.image.to_s, class: "contents__tweets"
-      .contents__tweets--details
-        車名
-        = tweet.carname
-      .contents__tweets--details
-        製造年
-        = tweet.year
-      .contents__tweets--details
-        = tweet.user.name
-        さんの投稿
-      .contents__tweets--details
-        超カッコいい
-        = tweet.likes.where(rate: "Supercool").count
-      .contents__tweets--details
-        カッコいい
-        = tweet.likes.where(rate: "Cool").count
-      .contents__tweets--details
-        ブサイク
-        = tweet.likes.where(rate: "Uncool").count
+.content
+  .tweet
+    - @tweets.each do |tweet|
+      .tweet__box
+        = link_to tweet_path(tweet), method: :get, class: "" do
+          .tweet__box--details
+            = tweet.user.name
+            さんの投稿
+          = image_tag tweet.image.to_s, class: "tweet__box--details"
+          .tweet__box--details
+            車名
+            = tweet.carname
+          .tweet__box--details
+            = tweet.year
+            年
+          .tweet__box--details
+            .tweet__box--details__counts
+              .tweet__box--details__counts.supercool
+                超カッコいい
+                = tweet.likes.where(rate: "Supercool").count
+              .tweet__box--details__counts.cool
+                カッコいい
+                = tweet.likes.where(rate: "Cool").count
+              .tweet__box--details__counts.uncool
+                ブサイク
+                = tweet.likes.where(rate: "Uncool").count

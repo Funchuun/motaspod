@@ -1,0 +1,88 @@
+.tweeting {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  &__box {
+    width: 750px;
+    margin: 0 auto;
+    background-color: rgba(255, 254, 254, 0.897);
+    border-style: dashed;
+    border-width: initial;
+    border-color: rgba(216, 8, 8, 0.863);
+    border-image: initial;
+    border-radius: 28px;
+    form {
+      margin: 0 auto;
+      padding: 5px 15px;
+      input#tweet_image.tweeting__box--enter {
+        background-color: rgba(255, 254, 254, 0.897);
+        color: rgb(69, 72, 73);
+        border-style: inset;
+      }
+    }
+    label {
+      color: rgb(69, 72, 73);
+    }
+    #img_field {
+      font-size: 15px;
+      margin-top: 10px;
+      padding: 5px 8px;
+      color: #666;
+      position: relative;
+      padding: 0;
+      cursor: pointer;
+      width: 700px;
+      // height: 250px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-color: #fff;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: 0.3s ease-out;
+    }
+     
+    #img_field i {
+      font-size: 100px;
+      color: #aaa;
+      line-height: 250px;
+      transition: 0.3s ease-out;
+    }
+     
+    #img_field i.add {
+      display: none;
+      font-size: 50px;
+      position: absolute;
+      top: -90px;
+      right: 15px;
+    }
+     
+    #img_field:hover {
+      background-color: #EDBC6C;
+      transition: 0.3s ease-out;
+      opacity: 0.9;
+    }
+     
+    #img_field:hover i {
+      transition: 0.3s ease-out;
+      display: block;
+      color: #fff;
+    }
+    &--enter {
+      border-radius: 10px;
+      display: flex;
+      width: 650px;
+      height: 30px;
+      margin-bottom: 5px;
+      color: rgb(69, 72, 73);
+    }
+    &--btn {
+      width: 100px;
+      height: 30px;
+      border-radius: 30px;
+      background-color: rgba(216, 8, 8, 0.863);
+      color: rgba(255, 255, 255, 0.87);
+      font-weight: bold;
+      margin: 5px auto;
+    }
+  }
+}

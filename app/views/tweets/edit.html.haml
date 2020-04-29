@@ -1,11 +1,20 @@
-.contents.row
-  .contents__form
-    = form_with(model: @tweet, url: "/tweets/#{@tweet.id}", method: :put) do |f|
-      .contents__form--tweet
-        再投稿する
-        .contents__form--tweet.form
-          = f.file_field :image, class: "contents__form--tweet.form", placeholder: "car/bike image"
-          = f.text_field :carname, class: "contents__form--tweet.form", placeholder: "car/bike name"
-          = f.text_field :year, class: "contents__form--tweet.form", placeholder: "production year"
-          = f.text_field :description, class: "contents__form--tweet.form", placeholder: "ex) It's cool color!"
-          = f.submit class: "contents__form--tweet.form", value: "Tweet"
+.header
+  = render partial: "render/header"
+
+.content
+  .tweeting
+    再投稿する
+    .tweeting__box
+      = form_with(model: @tweet, url: "/tweets/#{@tweet.id}", method: :put) do |f|
+        = f.label 'オススメの一台の写真 ※必須'
+        #img_field{:onclick => "$('file').click()"}
+          - if @tweet.image.to_s.present?
+            = image_tag(@tweet.image.to_s)
+          - else
+            %i.fas.fa_image
+            %i.fas.fa-file-upload.add
+        = f.file_field :image, class: "tweeting__box--enter", placeholder: "オススメの一台の写真 ※必須", id: "file"
+        = f.text_field :carname, class: "tweeting__box--enter", placeholder: "名前 ※必須"
+        = f.text_field :year, class: "tweeting__box--enter", placeholder: "製造年 ※必須 半角数字"
+        = f.text_field :description, class: "tweeting__box--enter", placeholder: "あなたがオススメだと思う理由 ※必須 180文字以内"
+        = f.submit class: "tweeting__box--btn", value: "投稿"

@@ -1,43 +1,46 @@
 .header
   = render partial: "render/header"
 
-.contents
-  = image_tag @tweet.image.to_s, class: "contents__tweets"
-  .contents__tweets--details
-    車名
-    = @tweet.carname
-  .contents__tweets--details
-    製造年
-    = @tweet.year
-  .contents__tweets--details
-    説明
-    = @tweet.description
-  .contents__tweets--details
-    = @tweet.user.name
-    さんの投稿
-  .contents__tweets--details
-    超カッコいい
-    = @tweet.likes.where(rate: "Supercool").count
-  .contents__tweets--details
-    カッコいい
-    = @tweet.likes.where(rate: "Cool").count
-  .contents__tweets--details
-    ブサイク
-    = @tweet.likes.where(rate: "Uncool").count
-  .contents__tweets--owner
-    - if current_user.id == @tweet.user_id
-      .content__tweets--owner__menu
-        = link_to edit_tweet_path, method: :get, class: "content__tweets--owner__menu" do
-          編集
-      .content__tweets--owner__menu
-        = link_to tweet_path, method: :delete, class: "content__tweets--owner__menu" do
-          削除
-  .contents__tweets--other
-    - if current_user.already_liked?(@tweet)
-      = button_to "取り消す", tweet_like_path(@tweet), method: :delete
-    - else
-      = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}}
-      = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}}
-      = button_to "ブサイク", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Uncool'}}
-    = link_to root_path, method: :get, class: "header.logo" do
-      トップへ戻る
+.content
+  .tweet
+    .tweet__box
+      .tweet__box--details
+        = @tweet.user.name
+        さんの投稿
+      = image_tag @tweet.image.to_s, class: "tweet__box--details"
+      .tweet__box--details
+        車名
+        = @tweet.carname
+      .tweet__box--details
+        = @tweet.year
+        年
+      .tweet__box--details
+        ひとこと:
+        .tweet__box--details.script
+        = @tweet.description
+      .tweet__box--details
+        .tweet__box--details__counts
+          .tweet__box--details__counts.supercool
+            超カッコいい
+            = @tweet.likes.where(rate: "Supercool").count
+          .tweet__box--details__counts.cool
+            カッコいい
+            = @tweet.likes.where(rate: "Cool").count
+          .tweet__box--details__counts.uncool
+            ブサイク
+            = @tweet.likes.where(rate: "Uncool").count
+      .tweet__box--owner
+        - if current_user.id == @tweet.user_id
+          .tweet__box--owner__menu
+            = link_to edit_tweet_path, method: :get, class: "tweet__box--owner__menu--button" do
+              編集
+          .tweet__box--owner__menu
+            = link_to tweet_path, method: :delete, class: "tweet__box--owner__menu--button" do
+              削除
+      .tweet__box--eval
+        - if current_user.already_liked?(@tweet)
+          = button_to "取り消す", tweet_like_path(@tweet), method: :delete
+        - else
+          = button_to "超カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Supercool'}, class: "input.tweet__box--eval.supercool"}
+          = button_to "カッコいい", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Cool'}, class: "input.tweet__box--eval.cool"}
+          = button_to "ブサイク", tweet_likes_path(@tweet), {method: :post, params: {rate: 'Uncool'}, class: "input.tweet__box--eval.uncool"}
