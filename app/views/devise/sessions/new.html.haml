@@ -1,23 +1,25 @@
-.title
-  ログイン
+.header
+  = render partial: "render/header"
 
-.sign_up_account
-  = link_to new_user_registration_path, method: :get do
-    アカウントをお持ちでないですか？
-.login
+.content
+  .account
+    ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .field
+    .account__enter
       = f.label :email
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email"
-    .field
+    .account__enter
       = f.label :password
       %br/
       = f.password_field :password, autocomplete: "current-password"
     - if devise_mapping.rememberable?
-      .field
+      .account__enter
         = f.check_box :remember_me
         = f.label :remember_me
-    .actions
+    .account__btn
       = f.submit "Log in"
-  = render "devise/shared/links"
+    .account__links
+      = render "devise/shared/links"
+      = link_to new_user_registration_path, method: :get do
+        アカウントをお持ちでないですか？
