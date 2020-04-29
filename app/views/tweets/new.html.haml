@@ -2,9 +2,9 @@
   = render partial: "render/header"
 
 .content
-  .newtweet
+  .tweeting
     ツイートを投稿する
-    .newtweet__box
+    .tweeting__box
       = form_with(model: @tweet, url: '/tweets', method: :post) do |f|
         = f.label 'オススメの一台の写真 ※必須'
         #img_field{:onclick => "$('file').click()"}
@@ -13,8 +13,8 @@
           - else
             %i.fas.fa_image
             %i.fas.fa-file-upload.add
-        = f.file_field :image, class: "newtweet__box--enter", placeholder: "オススメの一台の写真 ※必須", id: "file"
-        = f.text_field :carname, class: "newtweet__box--enter", placeholder: "名前 ※必須"
-        = f.text_field :year, class: "newtweet__box--enter", placeholder: "製造年 ※必須 半角数字"
-        = f.text_field :description, class: "newtweet__box--enter", placeholder: "あなたがオススメだと思う理由 ※必須 180文字以内"
-        = f.submit class: "newtweet__box--btn", value: "投稿"
+        = f.file_field :image, class: "tweeting__box--enter", placeholder: "オススメの一台の写真 ※必須", id: "file"
+        = f.text_field :carname, class: "tweeting__box--enter", placeholder: "名前 ※必須"
+        = f.text_field :year, class: "tweeting__box--enter", placeholder: "製造年 ※必須 半角数字"
+        = f.text_field :description, class: "tweeting__box--enter", placeholder: "あなたがオススメだと思う理由 ※必須 180文字以内"
+        = f.submit class: "tweeting__box--btn", value: "投稿"

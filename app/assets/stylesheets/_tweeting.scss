@@ -1,4 +1,4 @@
-.newtweet {
+.tweeting {
   color: rgb(255, 255, 255);
   font-weight: bold;
   &__box {
@@ -13,7 +13,7 @@
     form {
       margin: 0 auto;
       padding: 5px 15px;
-      input#tweet_image.newtweet__box--enter {
+      input#tweet_image.tweeting__box--enter {
         background-color: rgba(255, 254, 254, 0.897);
         color: rgb(69, 72, 73);
         border-style: inset;
@@ -30,8 +30,8 @@
       position: relative;
       padding: 0;
       cursor: pointer;
-      width: 400px;
-      height: 250px;
+      width: 700px;
+      // height: 250px;
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
