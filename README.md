@@ -42,8 +42,8 @@ https://i.gyazo.com/7d5cd499f77fd1cc9653da825c4e9bc8.gif
 https://i.gyazo.com/fa411e8bb2d057acf0aa0a06b12d2222.gif
 
 ## 構築方法
-### $ git clone 
-### $ cd hoge
+### $ git clone https://github.com/Funchuun/motaspod.git
+### $ cd motaspod
 ### $ bundle install
 ### $ rails db:create
 ### $ rails db:migrate
