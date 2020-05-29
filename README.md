@@ -57,7 +57,7 @@ https://i.gyazo.com/614ea5323c7d8d46b9a52509077b8d71.jpg
 ### http://localhost:3000
 
 ## 工夫したポイント
-### サーキットの縁石を意識した投稿の縁取り、投稿がカッコいいかどうかの3段階評価機能
+### サーキットの縁石を意識した投稿の縁取り、投稿がカッコいいかどうかの3段階評価機能、投稿する際に選んだ写真がプレビュー表示できる点
 
 ## 開発環境
 ### Ruby 2.5.1, Ruby on Rails 5.2.2, MySQL, GitHub, Heroku, Visual Studio Code
